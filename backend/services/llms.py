@@ -1,2 +1,5 @@
-from langchain_ollama import ChatOllama
-llm = ChatOllama(model="qwen2.5:3b", temperature=0)
+from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+load_dotenv()  # Load environment variables from .env file
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)

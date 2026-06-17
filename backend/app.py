@@ -28,9 +28,11 @@ def research(request: ResearchRequest):
     )
     result = graph.invoke(
         {
-            "query": request.query
+            "query": request.query,
+            "retry_count": 0
         }
     )
+    print(result)
     logger.info("Graph execution completed")
     # Return an object with a `report` field so clients receive a JSON object
     return {"report": result["final_report"]}

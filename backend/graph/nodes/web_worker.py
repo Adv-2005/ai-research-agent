@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 def web_worker(state: ResearchState) -> ResearchState:
     query = state["tasks"]["web"]
+    logger.info("web Start")
 
     logger.info(
         f"Web worker started for: {query}"

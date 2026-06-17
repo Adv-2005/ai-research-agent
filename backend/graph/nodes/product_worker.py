@@ -2,10 +2,14 @@ from graph.state import ResearchState
 from prompts.product_prompt import PRODUCT_PROMPT
 from services.llms import llm
 from tools import search_tool
+import logging
+
+logger = logging.getLogger(__name__)
 
 def product_worker(
     state: ResearchState
 ) -> ResearchState:
+    logger.info("Product Start")
 
     query = state["tasks"]["product"]
 

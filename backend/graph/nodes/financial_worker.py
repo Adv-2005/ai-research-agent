@@ -2,10 +2,13 @@ from prompts.financial_prompt import FINANCIAL_PROMPT
 from graph.state import ResearchState
 from services.llms import llm
 from tools import search_tool
-
+import logging
+logger = logging.getLogger(__name__)
 def financial_worker(
     state: ResearchState
 ) -> ResearchState:
+    
+    logger.info("Financial Start")
 
     query = state["tasks"]["financial"]
 
