@@ -33,4 +33,4 @@ def research(request: ResearchRequest):
     )
     logger.info("Graph execution completed")
     # Return an object with a `report` field so clients receive a JSON object
-    return {"report": result["report"]}
+    return {"report": result["final_report"]}
