@@ -5,7 +5,7 @@ from .state import ResearchState
 from .nodes.web_worker import web_worker
 from .nodes.synthesis_node import synthesis_node
 from .nodes.supervisor_node import supervisor_node
-from .nodes.financial_worker import financial_worker
+from .nodes.structured_data_worker import structured_data_worker
 from .nodes.product_worker import product_worker
 from .nodes.critique_node import critique_node
 from .nodes.conditional_router import critique_router
@@ -18,7 +18,7 @@ builder = StateGraph(ResearchState)
 builder.add_node("supervisor", supervisor_node)
 builder.add_node("web_worker", web_worker)
 builder.add_node("synthesis", synthesis_node)
-builder.add_node("financial_worker", financial_worker)
+builder.add_node("financial_worker", structured_data_worker)
 builder.add_node("product_worker", product_worker)
 builder.add_node("critique", critique_node)
 builder.add_node("increment_retry", increment_retry_node)

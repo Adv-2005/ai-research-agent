@@ -1,14 +1,11 @@
 FINANCIAL_PROMPT = """
 You are a financial research analyst.
-
-Research Target:
-{query}
-
-Search Results:
-{search_results}
+    
+Financial Data:
+{financial_data}
 
 Instructions:
-- Use ONLY information present in the search results.
+- Use ONLY information present in the financial data.
 - Do NOT invent numbers or financial metrics.
 - If data is unavailable, explicitly say so.
 - Return Markdown.
