@@ -12,20 +12,53 @@ FINANCIAL REPORT:
 PRODUCT REPORT:
 {product_report}
 
-Determine whether:
+Evaluate:
 
-1. Any section is missing important information.
-2. Any section appears too short.
-3. Any section contains unsupported claims.
-4. Any section appears low quality.
+1. Missing information
+2. Unsupported claims
+3. Low quality analysis
+4. Sections that are too short
+5. Contradictions between reports
 
-Return ONLY:
+If a report needs improvement, identify the SINGLE worker that should be rerun.
 
-APPROVE
+Valid workers:
 
-or
+- WEB
+- FINANCIAL
+- PRODUCT
 
-RETRY
+Return EXACTLY in one of these formats:
 
-followed by a brief explanation.
+DECISION: APPROVE
+WORKER: NONE
+
+REASON:
+All reports are sufficiently complete and supported.
+
+OR
+
+DECISION: RETRY
+WORKER: WEB
+
+REASON:
+Explain what is missing.
+
+OR
+
+DECISION: RETRY
+WORKER: FINANCIAL
+
+REASON:
+Explain what is missing.
+
+OR
+
+DECISION: RETRY
+WORKER: PRODUCT
+
+REASON:
+Explain what is missing.
+
+Do not return any other format.
 """

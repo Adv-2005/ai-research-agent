@@ -21,10 +21,12 @@ def web_worker(state: ResearchState) -> ResearchState:
     logger.info(
         "Web search completed"
     )
+    critique_feedback = state.get("critique_feedback", "")
 
     prompt = WEB_PROMPT.format(
         query=query,
-        search_results=search_results
+        search_results=search_results,
+        critique_feedback=critique_feedback
     )
 
     response = llm.invoke(prompt)
@@ -32,7 +34,8 @@ def web_worker(state: ResearchState) -> ResearchState:
     logger.info(
         "Web worker completed"
     )
-
+    logger.info(f"Web keys: {state.keys()}")
+    
     return {
         "web_report": response.content
     }

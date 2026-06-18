@@ -10,6 +10,7 @@ from .nodes.product_worker import product_worker
 from .nodes.critique_node import critique_node
 from .nodes.conditional_router import critique_router
 from .nodes.increment_retry_node import increment_retry_node
+from .nodes.conditional_router import retry_router
 from langgraph.graph import StateGraph
 
 builder = StateGraph(ResearchState)
@@ -34,13 +35,20 @@ builder.add_conditional_edges(
     "critique",
     critique_router,
     {
-        "retry": "increment_retry",
+        "retry_web": "increment_retry",
+        "retry_financial": "increment_retry",
+        "retry_product": "increment_retry",
         "approve": "synthesis"
     }
 )
-builder.add_edge(
+builder.add_conditional_edges(
     "increment_retry",
-    "supervisor"
+    retry_router,
+    {
+        "web_worker": "web_worker",
+        "financial_worker": "financial_worker",
+        "product_worker": "product_worker"
+    }
 )
 builder.set_finish_point("synthesis")
 graph = builder.compile()

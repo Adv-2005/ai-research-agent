@@ -33,4 +33,12 @@ Mention controversies, challenges, legal issues, competitive threats, or other c
 
 # Conclusion
 Provide a balanced summary based only on the available evidence.
+
+Previous critique feedback:
+
+{critique_feedback}
+
+If critique feedback is provided,
+specifically address the missing information
+mentioned by the reviewer.
 """

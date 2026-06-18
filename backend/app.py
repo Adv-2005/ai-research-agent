@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import logging
+from api.upload import router as upload_router
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -16,6 +18,9 @@ logger = logging.getLogger(__name__)
 
 from graph.graph import graph
 app = FastAPI()
+
+app.include_router(upload_router)
+
 
 class ResearchRequest(BaseModel):
     query: str

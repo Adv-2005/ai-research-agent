@@ -1,0 +1,11 @@
+from langchain_google_genai import (
+    GoogleGenerativeAIEmbeddings
+)
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
+def get_embeddings():
+
+    return GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001"
+    )

@@ -22,6 +22,8 @@ def financial_worker(
     )
 
     response = llm.invoke(prompt)
+    logger.info("Financial Complete")
+    logger.info(f"Financial keys: {state.keys()}")
 
     return {
         "financial_report": response.content

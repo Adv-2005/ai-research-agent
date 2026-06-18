@@ -16,6 +16,8 @@ def product_worker(
     search_results = search_tool.invoke(
         f"{query} products technology AI platform innovation"
     )
+    logger.info("Product Complete")
+    logger.info(f"Product keys: {state.keys()}")
 
     prompt = PRODUCT_PROMPT.format(
         query=query,

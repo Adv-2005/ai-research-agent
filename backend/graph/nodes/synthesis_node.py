@@ -1,6 +1,10 @@
 from graph.state import ResearchState
+import logging
+
+logger = logging.getLogger(__name__)
 
 def synthesis_node(state: ResearchState) -> ResearchState:
+    logger.info("SYNTHESIS START")
 
     report = f"""
 # Research Report

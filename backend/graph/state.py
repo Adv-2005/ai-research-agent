@@ -10,6 +10,7 @@ class ResearchState(TypedDict, total=False):
     product_report:str
 
     critique_decision:str
+    target_worker: str
     critique_feedback:str
 
     retry_count:int
