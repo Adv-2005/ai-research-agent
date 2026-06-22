@@ -8,6 +8,7 @@ class ResearchState(TypedDict, total=False):
     web_report:str
     financial_report:str
     product_report:str
+    rag_report:str
 
     critique_decision:str
     target_worker: str
