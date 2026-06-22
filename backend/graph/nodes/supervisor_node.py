@@ -13,7 +13,8 @@ def supervisor_node(state: ResearchState) -> ResearchState:
         "tasks":{
             "web": query,
             "financial": query,
-            "product": query
+            "product": query,
+            "rag": query
         }
     }
 

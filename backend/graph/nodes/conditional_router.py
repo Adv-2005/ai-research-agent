@@ -18,6 +18,8 @@ def critique_router(
         return "retry_financial"
     elif worker == "product":
         return "retry_product"
+    elif worker == "rag":
+        return "retry_rag"
     
     return "approve"
 
@@ -33,5 +35,7 @@ def retry_router(state):
 
     elif worker == "product":
         return "product_worker"
+    elif worker == "rag":
+        return "rag_worker"
 
     return "web_worker"

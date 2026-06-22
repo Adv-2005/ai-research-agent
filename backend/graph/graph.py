@@ -12,6 +12,7 @@ from .nodes.conditional_router import critique_router
 from .nodes.increment_retry_node import increment_retry_node
 from .nodes.conditional_router import retry_router
 from langgraph.graph import StateGraph
+from .nodes.rag_worker import rag_worker
 
 builder = StateGraph(ResearchState)
 
@@ -22,15 +23,29 @@ builder.add_node("financial_worker", structured_data_worker)
 builder.add_node("product_worker", product_worker)
 builder.add_node("critique", critique_node)
 builder.add_node("increment_retry", increment_retry_node)
+builder.add_node(
+    "rag_worker",
+    rag_worker
+)
 
 
 builder.set_entry_point("supervisor")
 builder.add_edge("supervisor", "web_worker")
 builder.add_edge("supervisor", "financial_worker")
 builder.add_edge("supervisor", "product_worker")
+builder.add_edge(
+    "supervisor",
+    "rag_worker"
+)
+
+
 builder.add_edge("web_worker", "critique")
 builder.add_edge("financial_worker", "critique")
 builder.add_edge("product_worker", "critique")
+builder.add_edge(
+    "rag_worker",
+    "critique"
+)
 builder.add_conditional_edges(
     "critique",
     critique_router,
@@ -38,6 +53,7 @@ builder.add_conditional_edges(
         "retry_web": "increment_retry",
         "retry_financial": "increment_retry",
         "retry_product": "increment_retry",
+        "retry_rag": "increment_retry",
         "approve": "synthesis"
     }
 )
@@ -47,7 +63,8 @@ builder.add_conditional_edges(
     {
         "web_worker": "web_worker",
         "financial_worker": "financial_worker",
-        "product_worker": "product_worker"
+        "product_worker": "product_worker",
+        "rag_worker": "rag_worker"  
     }
 )
 builder.set_finish_point("synthesis")

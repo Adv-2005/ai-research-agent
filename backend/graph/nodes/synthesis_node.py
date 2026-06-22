@@ -18,6 +18,10 @@ def synthesis_node(state: ResearchState) -> ResearchState:
 ---
 
 {state['product_report']}
+
+---
+
+{state['rag_report']}
 """
 
     return {

@@ -1,23 +1,27 @@
 RAG_PROMPT = """
 You are a research analyst.
 
-Question:
+Answer the question using ONLY
+the retrieved context.
+
+QUESTION:
 {query}
 
-Retrieved Context:
+CONTEXT:
 {context}
 
-Answer the question using ONLY
-the provided context.
+Instructions:
 
-If the information is not present,
-say so explicitly.
+- Use only information from context.
+- Do not invent facts.
+- If information is missing, say so.
+- Be precise and concise.
 
 Provide:
 
 # Findings
 
-# Evidence
+# Supporting Evidence
 
 # Limitations
 """

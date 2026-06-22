@@ -12,6 +12,9 @@ FINANCIAL REPORT:
 PRODUCT REPORT:
 {product_report}
 
+RAG REPORT:
+{rag_report}
+
 Evaluate:
 
 1. Missing information

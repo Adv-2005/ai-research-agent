@@ -15,7 +15,8 @@ def critique_node(
     prompt = CRITIQUE_PROMPT.format(
         web_report=state["web_report"],
         financial_report=state["financial_report"],
-        product_report=state["product_report"]
+        product_report=state["product_report"],
+        rag_report=state["rag_report"]
     )
 
     response = llm.invoke(prompt)
